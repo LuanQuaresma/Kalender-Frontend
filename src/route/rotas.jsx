@@ -1,8 +1,8 @@
 import {  BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Login from "../components/Login";
-import Header from "../components/Header";
-import Body from "../components/Body";
+import Login from "../components/Login/Login";
+import Header from "../components/Header/Header";
+import Body from "../components/Body/Body";
 
 function Rotas() {
   return (
