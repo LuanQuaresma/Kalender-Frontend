@@ -4,10 +4,32 @@ import './Login.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(`Email: ${email}\nPassword: ${password}`); // teste
+    console.log(`Email: ${email}\nPassword: ${password}`);
+
+    try {
+      const response = await fetch('URL_DA_API_DE_AUTENTICACAO', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.status === 200) {
+        console.log('Autenticação bem-sucedida');
+      } else if (response.status === 401) {
+        console.log('Credenciais inválidas');
+      } else {
+        console.log('Ocorreu um erro durante a autenticação');
+      }
+    } catch (error) {
+      console.log('Ocorreu um erro ao fazer a solicitação');
+    }
   };
+
   return (
     <div className="login">
       <form className="login__form" onSubmit={handleSubmit}>
@@ -32,4 +54,5 @@ const Login = () => {
     </div>
   );
 };
+
 export default Login;

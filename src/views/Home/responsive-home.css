@@ -1,0 +1,112 @@
+@media screen and (max-width: 900px){
+
+
+    .menu-desktop{
+
+        display: none;
+
+    }
+
+    .container{
+
+        padding: 0px 3%;
+
+    }
+
+    .cor{
+        background-color: #aaa;
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 100px;
+        
+    }
+
+    .section-saiba-more{
+        bottom: 181px;
+
+    }
+
+
+    .section-saiba-more  .container > .content-flex, .section-cards .container > .content-flex, .cards-black .container > .content-flex{
+        flex-direction: column;
+    }
+
+    .box-item{
+        width: 100%;
+        background-color: #FFF;
+    }
+
+
+    .box-content-item{
+        top: 47%;
+    }
+
+
+    .box-content-item h2{
+        font-size: 18px;
+    }
+
+    .box-content-item p{
+        font-size: 14px;
+    }
+
+    .header-2{
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+        flex-wrap: wrap;
+
+    }
+
+   
+    .header-2 button{
+        margin: 10px;
+    }
+
+    .content-flex-cards{
+
+        flex-direction: column;
+
+    }
+
+
+    .card{
+        width: 100%;
+    }
+
+
+    .card-2{
+        width: 100%;
+        margin: 40px 0px;
+    }
+
+
+    .content-flex-newsletter{
+        flex-direction: column;
+    }
+
+    .half-one, .half-two{
+        width: 100%;
+    }
+
+    .newsletter{
+
+        margin: 0px 3%;
+        padding: 25px 3%;
+
+    }
+
+}
+
+
+
+@media screen and (max-width: 414px){
+
+    
+    .box-content-item{
+        top: 54%;
+    }
+
+}
+
