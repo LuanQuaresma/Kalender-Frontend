@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import './Produto.css';
 
 const Produto = () => {
   const [nome, setNome] = useState('');
@@ -9,18 +11,29 @@ const Produto = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Aqui você pode realizar as ações desejadas com os dados do formulário
-    console.log(`Nome: ${nome}`);
-    console.log(`Preço: ${preco}`);
-    console.log(`URL: ${url}`);
-    console.log(`Imagem: ${imagem}`);
+    const produto = {
+      nome,
+      preco,
+      url,
+      imagem
+    };
+
+    axios.post('http://localhost:3003/api/produto', produto)
+      .then(response => {
+        console.log('Produto enviado com sucesso:', response.data);
+        window.location.href = '/home'; // Redireciona para a rota "/home"
+      })
+      .catch(error => {
+        console.error('Erro ao enviar o produto:', error);
+        // Realize as ações desejadas em caso de erro no envio do produto
+      });
   };
 
   return (
     <div>
       <h2>Formulário de Produto</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form className="product-form" onSubmit={handleSubmit}>
+        <div className="form-group">
           <label htmlFor="nome">Nome:</label>
           <input
             type="text"
@@ -29,7 +42,7 @@ const Produto = () => {
             onChange={(event) => setNome(event.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="preco">Preço:</label>
           <input
             type="text"
@@ -38,7 +51,7 @@ const Produto = () => {
             onChange={(event) => setPreco(event.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="url">URL Produto:</label>
           <input
             type="text"
@@ -47,7 +60,7 @@ const Produto = () => {
             onChange={(event) => setURL(event.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="imagem">Url Imagem:</label>
           <input
             type="text"
@@ -56,7 +69,7 @@ const Produto = () => {
             onChange={(event) => setImagem(event.target.value)}
           />
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" className="submit-button">Enviar</button>
       </form>
     </div>
   );

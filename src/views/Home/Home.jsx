@@ -1,7 +1,7 @@
 import React from 'react';
 import './home.css';
 import './responsive-home.css';
-import tenisNike from '../../assets/airmax.png';
+import tenisNike from '../../assets/airmax.jpg';
 
 const Home = () => {
   return (
@@ -17,17 +17,17 @@ const Home = () => {
 
           <div className="content-flex-cards">
             <div className="card">
-                <a className="link-product" href="/">
+                <a className="link-product" href="https://www.maze.com.br/produto/tenis-nike-air-max-97-og-prata/5295442">
                     <div className="card-img">
                     <img src={tenisNike} alt="" />
                     </div>
                     <div className="content-card">
                     <div className="part-one">
-                        <h2>Airmax97</h2>
+                        <h2>Airmax 97</h2>
                     </div>
                     <div className="content-price">
                         <h4>
-                            R$<span> <span className="maior">1230,</span> 00</span>
+                            R$<span> <span className="maior">1.019,</span> 94</span>
                         </h4>
                         <br />
                         

@@ -4,13 +4,14 @@ import './Login.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
 
-  const handleSubmit = async (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault();
     console.log(`Email: ${email}\nPassword: ${password}`);
 
     try {
-      const response = await fetch('URL_DA_API_DE_AUTENTICACAO', {
+      const response = await fetch('http://localhost:3003/kalender/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -20,6 +21,7 @@ const Login = () => {
 
       if (response.status === 200) {
         console.log('Autenticação bem-sucedida');
+        window.location.href = '/produto'; // Redirect to /produto
       } else if (response.status === 401) {
         console.log('Credenciais inválidas');
       } else {
@@ -30,9 +32,15 @@ const Login = () => {
     }
   };
 
+  const handleSignupSubmit = async (event) => {
+    event.preventDefault();
+    console.log(`Name: ${name}\nEmail: ${email}\nPassword: ${password}`);
+
+  };
+
   return (
     <div className="login">
-      <form className="login__form" onSubmit={handleSubmit}>
+      <form className="login__form" onSubmit={handleLoginSubmit}>
         <label className="login__label" htmlFor="email">E-mail:</label>
         <input
           className="login__input"
